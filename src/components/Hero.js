@@ -66,7 +66,7 @@ function Hero() {
   return (
     <HeroSection>
       <h1>Hi! My Name is Brij Patel</h1>
-      <p>Welcome to my portfolio website</p>
+      <p>Get to know more about me!</p>
       <ArrowDown onClick={handleScroll} />
     </HeroSection>
   );

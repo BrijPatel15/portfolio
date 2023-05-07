@@ -3,26 +3,36 @@ import styled from "styled-components";
 
 const ProjectsSection = styled.section`
   background-color: #fff;
-  padding: 100px;
+  padding: 50px 20px;
+
+  @media (min-width: 768px) {
+    padding: 100px;
+  }
 `;
 
 const ProjectsTitle = styled.h2`
   font-size: 36px;
   margin-bottom: 30px;
+  text-align: center;
 `;
 
 const ProjectsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 const ProjectCard = styled.div`
-  width: calc(33.33% - 20px);
+  width: calc(100% - 40px);
   margin-bottom: 30px;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+  @media (min-width: 768px) {
+    width: calc(33.33% - 20px);
+    margin: 0 10px 30px;
+  }
 `;
 
 const ProjectImage = styled.img`
@@ -47,6 +57,7 @@ const ProjectLink = styled.a`
   background-color: #333;
   color: #fff;
   text-align: center;
+  text-decoration: none;
   padding: 10px 20px;
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
@@ -55,6 +66,26 @@ const ProjectLink = styled.a`
     color: #333;
   }
 `;
+const Skill = styled.li`
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 7px 12px;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  color: #555;
+`;
+
+const SkillsList = styled.ul`
+  list-style: none;
+  padding: 10px 0px;
+  margin: 0;
+`;
+
+const projects = [
+  {title: "Golf Scanner", link: "https://github.com/BrijPatel15/golf-scraper", desc: "Always tired of looking at multiple of your local golf courses to find the cheapest price? Using Golf Scraper you can find all the available tee times in one place!",
+   img: "https://via.placeholder.com/300x200", tech: ["React.js", "Node.js"]},
+]
 
 const Projects = () => {
   return (
@@ -62,30 +93,21 @@ const Projects = () => {
       <div className="container">
         <ProjectsTitle>Projects</ProjectsTitle>
         <ProjectsContainer>
-          <ProjectCard>
-            <ProjectImage src="https://via.placeholder.com/300x200" alt="Project" />
-            <ProjectTitle>Project 1</ProjectTitle>
-            <ProjectDescription>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis auctor hendrerit mi, at molestie augue consectetur ac.
-            </ProjectDescription>
-            <ProjectLink href="#">View project</ProjectLink>
-          </ProjectCard>
-          <ProjectCard>
-            <ProjectImage src="https://via.placeholder.com/300x200" alt="Project" />
-            <ProjectTitle>Project 2</ProjectTitle>
-            <ProjectDescription>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis auctor hendrerit mi, at molestie augue consectetur ac.
-            </ProjectDescription>
-            <ProjectLink href="#">View project</ProjectLink>
-          </ProjectCard>
-          <ProjectCard>
-            <ProjectImage src="https://via.placeholder.com/300x200" alt="Project" />
-            <ProjectTitle>Project 3</ProjectTitle>
-            <ProjectDescription>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis auctor hendrerit mi, at molestie augue consectetur ac.
-            </ProjectDescription>
-            <ProjectLink href="#">View project</ProjectLink>
-          </ProjectCard>
+          {projects.map(function({title, link, desc, img, tech}){
+            return <ProjectCard>
+                    <ProjectImage src={img} alt="Project" />
+                    <ProjectTitle>{title}</ProjectTitle>
+                    <ProjectDescription>
+                      {desc}
+                    </ProjectDescription>
+                    <ProjectLink href={link}>View project</ProjectLink>
+                    <SkillsList>
+                      {tech.map(function(t){
+                        return <Skill>{t}</Skill>
+                      })}
+                    </SkillsList>
+            </ProjectCard> 
+          })}
         </ProjectsContainer>
       </div>
     </ProjectsSection>

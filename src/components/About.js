@@ -3,34 +3,45 @@ import styled from "styled-components";
 
 const AboutSection = styled.section`
   background-color: #fff;
-  padding: 100px;
+  padding: 60px 30px;
 `;
 
 const AboutContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 `;
 
 const AboutContent = styled.div`
-  width: 45%;
+  width: 100%;
   max-width: 600px;
+
+  @media only screen and (min-width: 768px) {
+    width: 45%;
+  }
 `;
 
 const AboutTitle = styled.h2`
   font-size: 36px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 `;
 
 const AboutText = styled.p`
   font-size: 18px;
   line-height: 1.6;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 `;
 
 const AboutSkills = styled.div`
-  width: 45%;
+  width: 100%;
   max-width: 600px;
+  margin-top: 40px;
+
+  @media only screen and (min-width: 768px) {
+    margin-top: 0;
+    width: 45%;
+  }
 `;
 
 const SkillsTitle = styled.h3`
@@ -53,6 +64,14 @@ const Skill = styled.li`
   background-color: #f2f2f2;
   color: #555;
 `;
+
+const skills = [
+  "Java",
+  "JavaScript",
+  "HTML/CSS",
+  "SQL",
+  "React.js",
+];
 
 const About = () => {
   return (
@@ -77,14 +96,9 @@ const About = () => {
           <AboutSkills>
             <SkillsTitle>Skills</SkillsTitle>
             <SkillsList>
-              <Skill>HTML</Skill>
-              <Skill>CSS</Skill>
-              <Skill>JavaScript</Skill>
-              <Skill>React</Skill>
-              <Skill>Node.js</Skill>
-              <Skill>Express.js</Skill>
-              <Skill>MongoDB</Skill>
-              <Skill>SQL</Skill>
+              {skills.map(function (skill) {
+                return <Skill>{skill}</Skill>;
+              })}
             </SkillsList>
           </AboutSkills>
         </AboutContainer>
