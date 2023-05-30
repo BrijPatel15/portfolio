@@ -84,7 +84,9 @@ const SkillsList = styled.ul`
 
 const projects = [
   {title: "Golf Scanner", link: "https://github.com/BrijPatel15/golf-scraper", desc: "Always tired of looking at multiple of your local golf courses to find the cheapest price? Using Golf Scraper you can find all the available tee times in one place!",
-   img: "https://via.placeholder.com/300x200", tech: ["React.js", "Node.js"]},
+   img: "https://via.placeholder.com/300x200", tech: ["React.js", "Node.js", "Firebase"]},
+  {title: "Manga Notifer", link:"", desc:"Find keeping up with my favourite manga already tiring? With this tool you can enter in the URL of where you read you manga and get notified when a new chapter is available!",
+   img: "https://via.placeholder.com/300x200", tech: ["Node.js", "React.js", "SQLite"]}
 ]
 
 const Projects = () => {

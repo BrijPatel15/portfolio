@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Resume from "../Resume.pdf"
 
 const AboutSection = styled.section`
   background-color: #fff;
@@ -68,10 +69,34 @@ const Skill = styled.li`
 const skills = [
   "Java",
   "JavaScript",
+  "JQuery",
   "HTML/CSS",
   "SQL",
   "React.js",
+  "Postgres", 
+  "OSGi",
+  "Maven",
+  "Object Oriented Programming",
+  "Git",
+  "Mockito",
+  "JUnit"
 ];
+
+const ResumeLink = styled.a`
+  display: inline-block;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border-color: #000
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: #fff;
+    color: #333;
+  }
+`;
 
 const About = () => {
   return (
@@ -81,17 +106,13 @@ const About = () => {
           <AboutContent>
             <AboutTitle>About Me</AboutTitle>
             <AboutText>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              euismod eu lorem et ultricies. In porta lorem at dui semper
-              porttitor. Nullam quis cursus dui. Cras tincidunt vehicula tellus
-              eu facilisis. Donec nisi turpis, iaculis et arcu a, aliquet
-              ultrices nisl. Nam in pharetra odio, ac blandit metus. Suspendisse
-              potenti. Praesent elementum diam non orci cursus rutrum. Pellentesque
-              condimentum ultrices dignissim. Sed a tempor ligula, vel luctus
-              sapien. Mauris vehicula rutrum massa. Duis condimentum, ex quis
-              ullamcorper rhoncus, erat libero tempor arcu, condimentum facilisis
-              tellus lectus ut nunc.
+            Experienced fullstack software developer with a passion for building high-quality web applications. Adept at solving complex problems with a
+            detail-oriented and analytical approach. Skilled in Java, JavaScript, and HTML/CSS, with experience in popular frameworks such as React and
+            OSGi. Thrives in collaborative environments and enjoys sharing knowledge with team members to achieve project success. Continuously learning
+            new technologies to stay up-to-date with industry trends. Possesses excellent communication and leadership skills to effectively manage teams
+            and deliver exceptional results
             </AboutText>
+            <ResumeLink href={Resume} target="_blank">Check out my Resume!</ResumeLink>
           </AboutContent>
           <AboutSkills>
             <SkillsTitle>Skills</SkillsTitle>
