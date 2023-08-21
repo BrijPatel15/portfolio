@@ -1,61 +1,74 @@
-import React from "react";
-import styled from "styled-components";
-import { MdKeyboardArrowDown } from "react-icons/md";
-
-const HeroSection = styled.section`
-  height: 100vh;
-  background: linear-gradient(45deg, #f3ec78, #af4261, #009dff);
-  background-size: 400% 400%;
-  animation: slideDiagonal 8s ease-in-out infinite;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  @keyframes slideDiagonal {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-`;
-
-const ArrowDown = styled(MdKeyboardArrowDown)`
-  font-size: 2rem;
-  margin-top: 20px;
-  animation: arrow 2s infinite;
-  @keyframes arrow {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(10px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-`;
+import React, { useEffect } from "react";
+import profilePic from "../BrijProfilePicture-modified.png";
+import './Hero.css';
+import { TypeAnimation } from "react-type-animation";
+import { Button } from '@mui/material';
 
 function Hero() {
-  const handleScroll = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: "smooth",
-    });
-  };
+  useEffect(() => {
+    const totalTypeAnimationTime = 5050; // Total time for TypeAnimation
+    const highlightInterval = 1000; // Time between each highlight
+  
+    const javaPill = setTimeout(() => {
+      document.getElementById("java").classList.add("active");
+    }, totalTypeAnimationTime);
+  
+    const javascriptPill = setTimeout(() => {
+      document.getElementById("javascript").classList.add("active");
+    }, totalTypeAnimationTime + highlightInterval);
+  
+    const reactPill = setTimeout(() => {
+      document.getElementById("react").classList.add("active");
+    }, totalTypeAnimationTime + highlightInterval * 2);
+  
+    // Cleanup timeouts when component unmounts
+    return () => {
+      clearTimeout(javaPill);
+      clearTimeout(javascriptPill);
+      clearTimeout(reactPill);
+    };
+  }, []);
+  
 
   return (
-    <HeroSection>
-      <h1>Hi! My Name is Brij Patel</h1>
-      <p>Get to know more about me!</p>
-      <ArrowDown onClick={handleScroll} />
-    </HeroSection>
+    <div style={{ backgroundColor: "black", display: "flex", flexDirection: "column", alignItems: "center", 
+      height: "calc(100vh - 80px)", width: "100vw"}}>
+      <img src={profilePic} alt="This is me!" style={{ maxHeight: "40%", maxWidth: "40%", objectFit: "contain" }} />
+      <div className="hero-text">
+        <h2>Hello my name is Brij!</h2>
+        <TypeAnimation
+          sequence={[
+            'I am a Travler ✈️',
+            1000,
+            'I am a Gamer ⌨️',
+            1000,
+            'I am a Developer 👨🏼‍💻',
+            1000
+          ]}
+          speed={50}
+          className="type-animation"
+        />
+        <h2>I specialize in building fast, responsible, and reliable web apps using 
+          <span id="java" className="pill-word"> Java</span>,
+          <span id="javascript" className="pill-word">JavaScript</span>,
+          and <span id="react" className="pill-word">React</span></h2>
+      </div>
+      <div style={{padding: '20px 0'}}>
+        <Button
+          variant="contained"
+          sx={{
+            backgroundColor: '#0000ff', // Your blue highlight color
+            color: 'white', // Text color
+            '&:hover': {
+              backgroundColor: '#1E90FF', // Slightly darker shade on hover
+            },
+          }}
+          href={`mailto:brij.2815@gmail.com`}
+        >
+          Get in Touch
+        </Button>
+      </div>
+    </div>
   );
 }
 

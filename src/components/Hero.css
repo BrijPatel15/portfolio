@@ -1,33 +1,33 @@
-.hero {
-    height: calc(100vh - 80px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-}
-  
-.hero__content {
+.hero-text {
+    color: white;
     text-align: center;
-}
-
-.hero__content h1 {
-    font-size: 5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-
-.hero__content p {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-}
-
-.hero__content button {
-    background-color: #000;
-    color: #fff;
-    font-size: 1.5rem;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 2rem;
-    cursor: pointer;
+    padding: 0 20px;
 }
   
+@media screen and (max-width: 600px) {
+    .hero-text h2 {
+        font-size: 1rem; /* Adjust the size as needed */
+    }
+
+    .hero-text h1,
+    .hero-text .type-animation {
+        font-size: 1.5rem; /* Adjust the size as needed */
+    }
+}
+  
+.type-animation {
+    font-size: 2em;
+}
+
+.pill-word {
+    display: inline-block; /* Keep it inline with text */
+    background-color: transparent; /* No background initially */
+    color: white; /* Text color inside the pill */
+    border-radius: 15px; /* Rounded corners */
+    padding: 5px 10px; /* Padding around the text */
+    transition: background-color 0.5s linear; /* Transition effect */
+}
+  
+.pill-word.active {
+    background-color: #0000ff; /* Pill color when active */
+}

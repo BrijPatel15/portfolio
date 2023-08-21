@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Resume from "../Resume.pdf"
+import { Button } from '@mui/material';
 
 const AboutSection = styled.section`
   background-color: #fff;
@@ -64,7 +65,13 @@ const Skill = styled.li`
   border-radius: 20px;
   background-color: #f2f2f2;
   color: #555;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: #0000ff;
+    color: white; 
+  }
 `;
+
 
 const skills = [
   "Java",
@@ -82,21 +89,7 @@ const skills = [
   "JUnit"
 ];
 
-const ResumeLink = styled.a`
-  display: inline-block;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  border-color: #000
-  transition: all 0.3s ease-in-out;
-  &:hover {
-    background-color: #fff;
-    color: #333;
-  }
-`;
+
 
 const About = () => {
   return (
@@ -112,7 +105,20 @@ const About = () => {
             new technologies to stay up-to-date with industry trends. Possesses excellent communication and leadership skills to effectively manage teams
             and deliver exceptional results
             </AboutText>
-            <ResumeLink href={Resume} target="_blank">Check out my Resume!</ResumeLink>
+            {/* <ResumeLink href={Resume} target="_blank">Check out my Resume!</ResumeLink> */}
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: '#0000ff', // Your blue highlight color
+                color: 'white', // Text color
+                '&:hover': {
+                  backgroundColor: '#1E90FF', // Slightly darker shade on hover
+                },
+              }}
+              href={Resume}
+            >
+              Check out my Resume
+            </Button>
           </AboutContent>
           <AboutSkills>
             <SkillsTitle>Skills</SkillsTitle>
