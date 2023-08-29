@@ -32,7 +32,7 @@ function Hero() {
 
   return (
     <div style={{ backgroundColor: "black", display: "flex", flexDirection: "column", alignItems: "center", 
-      height: "calc(100vh - 80px)", width: "100vw"}}>
+      height: "calc(100vh - 80px)", width: "100vw", paddingTop: "50px"}}>
       <img src={profilePic} alt="This is me!" style={{ maxHeight: "40%", maxWidth: "40%", objectFit: "contain" }} />
       <div className="hero-text">
         <h2>Hello my name is Brij!</h2>
@@ -48,7 +48,7 @@ function Hero() {
           speed={50}
           className="type-animation"
         />
-        <h2>I specialize in building fast, responsible, and reliable web apps using 
+        <h2>I specialize in building fast, responsive, and reliable web apps using 
           <span id="java" className="pill-word"> Java</span>,
           <span id="javascript" className="pill-word">JavaScript</span>,
           and <span id="react" className="pill-word">React</span></h2>

@@ -5,7 +5,14 @@ import { Button } from '@mui/material';
 
 const AboutSection = styled.section`
   background-color: #fff;
-  padding: 60px 30px;
+  
+  @media only screen and (min-width: 601px){
+    padding: 40px 150px;
+  }
+  
+  @media only screen and (max-width: 600px){
+    padding: 60px 30px;
+  }
 `;
 
 const AboutContainer = styled.div`

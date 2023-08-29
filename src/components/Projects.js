@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Button } from '@mui/material';
 
 const ProjectsSection = styled.section`
   background-color: #fff;
@@ -51,21 +52,6 @@ const ProjectDescription = styled.p`
   line-height: 1.5;
   margin-bottom: 20px;
 `;
-
-const ProjectLink = styled.a`
-  display: inline-block;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: all 0.3s ease-in-out;
-  &:hover {
-    background-color: #fff;
-    color: #333;
-  }
-`;
 const Skill = styled.li`
   display: inline-block;
   margin-right: 10px;
@@ -102,8 +88,20 @@ const Projects = () => {
                     <ProjectDescription>
                       {desc}
                     </ProjectDescription>
-                    <ProjectLink href={link}>View project</ProjectLink>
-                    <SkillsList>
+                    <Button
+                      variant="contained"
+                      sx={{
+                        backgroundColor: '#0000ff', // Your blue highlight color
+                        color: 'white', // Text color
+                        '&:hover': {
+                          backgroundColor: '#1E90FF', // Slightly darker shade on hover
+                        },
+                      }}
+                      href={link}
+                    >
+                      View Project
+                    </Button>
+                    <SkillsList style={{paddingTop: "20px"}}>
                       {tech.map(function(t){
                         return <Skill>{t}</Skill>
                       })}

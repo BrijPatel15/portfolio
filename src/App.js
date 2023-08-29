@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import "./App.css";
 import Experience from "./components/Experience";
+import Projects from "./components/Projects";
 
 function App() {
   const globalStyles = {
@@ -14,6 +15,7 @@ function App() {
         <Hero />
         <About />
         <Experience/>
+        <Projects />
       </div>
     </div>
   );
